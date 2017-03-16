@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <strong>Nombre Completo</strong>
+  <%= @building.nombre_completo %>
+</h1>
+
+<p>
+  <strong>Nit:</strong>
+  <%= @building.nit %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @building.nombre %>
+</p>
+
+<p>
+  <strong>Teléfono:</strong>
+  <%= @building.telefono %>
+</p>
+
+<p>
+  <strong>Dirección:</strong>
+  <%= @building.direccion %>
+</p>
+
+<p>
+  <strong>Activo:</strong>
+  <% if @building.activo %>
+    si
+  <% else %>
+    no
+  <% end %>
+</p>
+<hr>
+<%= link_to 'lista completa de empleados ' , building_employees_path(@building)%><br>
+<%= link_to 'Añadir Empleado'  , new_building_employee_path(@building)%>
+
+<h2>lista empleados</h2>
+
+<table>
+  <thead>
+    <th>cédula</th>
+    <th>nombre</th>
+    <th>cargo</th>
+
+  </thead>
+  <tbody>
+    <% @building.employees.each do |empleado| %>
+      <tr>
+        <td><%= link_to empleado.cedula, building_employee_path(@building,empleado),target: '_blank'%></td>
+        <td><%=link_to empleado.nombre , building_employee_path(@building,empleado),target: '_blank'%></td>
+        <td><%=link_to empleado.cargo ,building_employee_path(@building,empleado),target: '_blank'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Editar', edit_building_path(@building) %> |
+<%= link_to 'Atras', buildings_path %>

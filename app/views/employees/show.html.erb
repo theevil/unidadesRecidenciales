@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+<h1><String><%= @employee.nombre %></String></h1>
+<p>
+  <strong>Cédula:</strong>
+  <%= @employee.cedula %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @employee.nombre %>
+</p>
+
+<p>
+  <strong>Teléfonoo:</strong>
+  <%= @employee.telefono %>
+</p>
+
+<p>
+  <strong>Dirección:</strong>
+  <%= @employee.direccion %>
+</p>
+
+<p>
+  <strong>Cargo:</strong>
+  <%= @employee.cargo %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @employee.email %>
+</p>
+
+<p>
+  <strong>Edad:</strong>
+  <%= @employee.edad %>
+</p>
+
+<p>
+  <strong>Fecha nacimiento:</strong>
+  <%= @employee.fehca_nacimiento %>
+</p>
+
+<p>
+  <strong>Unidad recidencial:</strong>
+  <%= @employee.building.nombre_completo %>
+</p>
+
+<%= link_to 'Editar', edit_building_employee_path(@building, @employee) %> |
+<%= link_to 'Atras', building_employees_path(@building, @employee) %>

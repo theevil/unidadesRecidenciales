@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Empleados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cedula</th>
+      <th>Nombre</th>
+      <th>Teléfonoo</th>
+      <th>Dirección</th>
+      <th>Cargo</th>
+      <th>Email</th>
+      <th>Edad</th>
+      <th>Fehca nacimiento</th>
+      <th>Unidad Recidencial</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.cedula %></td>
+        <td><%= employee.nombre %></td>
+        <td><%= employee.telefono %></td>
+        <td><%= employee.direccion %></td>
+        <td><%= employee.cargo %></td>
+        <td><%= employee.email %></td>
+        <td><%= employee.edad %></td>
+        <td><%= employee.fehca_nacimiento %></td>
+        <td><%= employee.building.nombre_completo %></td>
+        <td><%= link_to 'Ver', building_employee_path(@building, employee)  %></td>
+        <td><%= link_to 'Editar', edit_building_employee_path(@building, employee) %></td>
+        <td><%= link_to 'Borrar', building_employee_path(@building ,employee), method: :delete, data: { confirm: 'Estas Seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Empleado', new_building_employee_path(@building) %>

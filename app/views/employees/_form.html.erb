@@ -1,0 +1,63 @@
+<%= form_for(building_employee_path(@building,@employee)) do |f| %>
+  <% if building_employee_path(@building,@employee).errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(building_employee_path(@building,@employee).errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% building_employee_path(@building,@employee).errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cedula %>
+    <%= f.text_field :cedula %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telefono ,'Telefono'%>
+    <%= f.text_field :telefono %>
+  </div>
+
+  <div class="field">
+    <%= f.label :direccion ,'Dirección'%>
+    <%= f.text_field :direccion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cargo %>
+    <%= f.text_field :cargo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :edad %>
+    <%= f.number_field :edad %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fehca_nacimiento %>
+    <%= f.date_select :fehca_nacimiento %>
+  </div>
+
+  <div class="field">
+    <%= f.label :building_id , 'Unidad Recidencial' %>
+    <%= f.collection_select(:building_id,Building.all,:id,:nombre_completo)%>
+    <!--  este es un select ( se le manda el id , la consulta , el campo a recibir , el nombre a mostrar -->
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Aceptar'%>
+  </div>
+<% end %>
